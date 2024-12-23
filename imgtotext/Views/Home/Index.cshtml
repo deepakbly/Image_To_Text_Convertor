@@ -1,0 +1,22 @@
+﻿@model imgtotext.Models.ImageUploadModel
+
+@{
+    ViewBag.Title = "Image Upload";
+}
+
+<h2>Upload Image for Text Extraction</h2>
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <label for="ImageFile">Choose an image:</label>
+        <input type="file" name="ImageFile" />
+    </div>
+    <input type="submit" value="Upload" />
+}
+
+@if (ViewBag.ExtractedTransactionID != null)
+{
+    <h3>ExtractedTransactionID Text:</h3>
+    <p>@ViewBag.ExtractedTransactionID</p>
+}
